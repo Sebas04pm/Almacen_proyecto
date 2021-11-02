@@ -1,3 +1,4 @@
+//COMANDOS Y LIBRERIAS PARA LEVANTAR LA BASE DE DATOS
 const datos = require('sequelize');
 
 const accesorioModel = require('./modelos/accesorios');
@@ -8,13 +9,13 @@ const sequelize = new datos('zj2PJH4VDT','zj2PJH4VDT','Rg6wESWPHi', {
     dialect:'mysql'
 });
 
-const almac = accesorioModel(sequelize, datos);
+const almac = accesorioModel(sequelize, datos);  //SE CREA UN MODELO "almac" PARA SINCRONIZAR LA B.D.
 sequelize.sync({force: false})
 
-.then(()=> {
-    console.log('Tablas Sincronizadas')
+.then(()=> {                               //DEVUELVE LAS PROMESAS CUANDO LAS TABLAS SE HAYAN CREADO
+    console.log('Tablas Sincronizadas')  
 })
 
-module.exports = {
+module.exports = {    //EXPORTAMOS LOS OBJETOS QUE NECESITAMOS
     almac
 }
